@@ -8,8 +8,11 @@ The motion of a double pendulum can be described by a set of coupled ordinary di
 
 The equations of motion for a double pendulum are highly nonlinear and cannot be solved analytically. Therefore, numerical integration methods, such as the Runge-Kutta method implemented in this simulation, approximate the solutions over time. These methods provide a numerical solution that allows for the visualization of the pendulum's motion and the exploration of its chaotic behaviour.
 
+![image](https://github.com/Ehdunhackme/Double-Pendulum-Simulation/assets/75579286/778090a0-004e-4430-a200-2c2b26e096fb)
+Slopes used by the classical Runge-Kutta method 
+
 # Acknowledgements
-Inspired by the work of Richard Fitzpatrick, author of "Physics of Fluids"
+Inspired by the work of Richard Fitzpatrick, author of "Physics of Fluids" and DEVRIES, Paul L.; HASBUN, Javier E. A first course in computational physics. Second edition. Jones and Bartlett Publishers: 2011. p. 215.
 
 
 
