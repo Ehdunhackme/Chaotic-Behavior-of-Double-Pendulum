@@ -2,7 +2,7 @@
 
 This py script presents a simulation of the dynamics of a double pendulum system, a classic example of a chaotic dynamical system. The model incorporates the governing equations of motion, accounting for gravitational forces, tension in the pendulum strings, and air resistance. Utilizing numerical integration techniques provided by the SciPy library, the script solves the system's differential equations to predict the evolution of the pendulum's motion over time. The resulting trajectories are visualized using Matplotlib, enabling interactive exploration of the system's behaviour by adjusting initial conditions and time parameters. This py script provides insights into the complex nonlinear dynamics inherent in the double pendulum system.
 
-# How it works?????
+# How does it work?????
 
 The motion of a double pendulum can be described by a set of coupled ordinary differential equations (ODEs) derived from Newton's laws of motion. These equations involve variables such as the angles of the pendulum arms, their angular velocities, and external forces like gravity and friction.
 
