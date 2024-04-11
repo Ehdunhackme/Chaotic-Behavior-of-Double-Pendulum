@@ -6,7 +6,7 @@ This py script presents a simulation of the dynamics of a double pendulum system
 
 The motion of a double pendulum can be described by a set of coupled ordinary differential equations (ODEs) derived from Newton's laws of motion. These equations involve variables such as the angles of the pendulum arms, their angular velocities, and external forces like gravity and friction.
 
-The equations of motion for a double pendulum are highly nonlinear and cannot be solved analytically. Therefore, numerical integration methods, such as the Runge-Kutta method implemented in this simulation, approximate the solutions over time. These methods provide a numerical solution that allows for the visualization of the pendulum's motion and the exploration of its chaotic behaviour.
+The equations of motion for a double pendulum are highly nonlinear and cannot be solved analytically. Therefore, the Runge-Kutta method is implemented in this simulation to approximate the solutions over time. These methods provide a numerical solution that allows for the visualization of the pendulum's motion and the exploration of its chaotic behaviour.
 
 ![image](https://github.com/Ehdunhackme/Double-Pendulum-Simulation/assets/75579286/778090a0-004e-4430-a200-2c2b26e096fb)
 Slopes used by the classical Runge-Kutta method 
