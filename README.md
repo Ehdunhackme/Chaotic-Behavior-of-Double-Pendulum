@@ -1,6 +1,7 @@
 # Double-Pendulum-Simulation
 
 This py script presents a simulation of the dynamics of a double pendulum system, a classic example of a chaotic dynamical system. The model incorporates the governing equations of motion, accounting for gravitational forces, tension in the pendulum strings, and air resistance. 
+
 ![image](https://github.com/user-attachments/assets/2aad7606-b94a-4216-86a4-0ff245c3267f)
 
 
