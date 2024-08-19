@@ -1,6 +1,6 @@
 # Double-Pendulum-Simulation
 
-This py script presents a simulation of the dynamics of a double pendulum system, a classic example of a chaotic dynamical system. The model incorporates the governing equations of motion, accounting for gravitational forces, tension in the pendulum strings, and air resistance. Time-domain plots were added to visualize the angular displacement and angular velocity of the pendulum over time.
+This py script presents a simulation of the dynamics of a double pendulum system, a classic example of a chaotic dynamical system. The model incorporates the governing equations of motion, accounting for gravitational forces, tension in the pendulum strings, and air resistance. Time-domain plots were added to visualize the pendulum's angular displacement and angular velocity over time.
 
 ![image](https://github.com/user-attachments/assets/2aad7606-b94a-4216-86a4-0ff245c3267f)
 
@@ -65,11 +65,11 @@ $$\alpha_1 = \ddot{\theta}_1 = \text{Function of } (\theta_1, \theta_2, \dot{\th
 ```math
 $$\alpha_2 = \ddot{\theta}_2 = \text{Function of } (\theta_1, \theta_2, \dot{\theta}_1, \dot{\theta}_2, g, R_1, R_2, m_1, m_2, b)$$
 ```
+<!-- Adding extra spacing before the final image -->
+<br>
+<br>
 
-
-
-   
-![image](https://github.com/user-attachments/assets/f4e71374-3d1b-4258-893c-2ffffdef8933)
+![image](https://github.com/user-attachments/assets/6f7c7795-5c05-4d84-a469-2e7dd83a92f5)
 
 
 # Acknowledgements
