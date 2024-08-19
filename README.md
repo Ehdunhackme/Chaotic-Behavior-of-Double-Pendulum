@@ -18,19 +18,19 @@ The equations of motion for a double pendulum are highly nonlinear and cannot be
 **Pendulum 1:**
 
 - Position Vector:
-$$
+```math
 \mathbf{r}_1 = R_1 \begin{pmatrix} \sin(\theta_1) \\ -\cos(\theta_1) \end{pmatrix}
-$$
+```
 
 - Acceleration Vector:
-$$
+```math
 \mathbf{a}_1 = R_1 \begin{pmatrix} \ddot{\theta}_1 \cos(\theta_1) - \dot{\theta}_1^2 \sin(\theta_1) \\ \ddot{\theta}_1 \sin(\theta_1) + \dot{\theta}_1^2 \cos(\theta_1) \end{pmatrix}
-$$
+```
 
 - Forces Acting on Pendulum 1:
-$$
+```math
 \mathbf{F}_1 = -m_1 g \begin{pmatrix} 0 \\ 1 \end{pmatrix} + T_1 \begin{pmatrix} -\sin(\theta_1) \\ \cos(\theta_1) \end{pmatrix} + \text{Damping Forces}
-$$
+```
 
 - Equation of Motion: $$m_1 \mathbf{a}_1 - \mathbf{F}_1 = 0$$
 
