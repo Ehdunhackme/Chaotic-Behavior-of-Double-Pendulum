@@ -66,6 +66,8 @@ $$\alpha_1 = \ddot{\theta}_1 = \text{Function of } (\theta_1, \theta_2, \dot{\th
 $$\alpha_2 = \ddot{\theta}_2 = \text{Function of } (\theta_1, \theta_2, \dot{\theta}_1, \dot{\theta}_2, g, R_1, R_2, m_1, m_2, b)$$
 ```
 
+
+
    
 ![image](https://github.com/user-attachments/assets/f4e71374-3d1b-4258-893c-2ffffdef8933)
 
