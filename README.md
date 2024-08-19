@@ -11,7 +11,7 @@ The motion of a double pendulum can be described by a set of coupled ordinary di
 
 The equations of motion for a double pendulum are highly nonlinear and cannot be solved analytically. Therefore, the Runge-Kutta method is implemented in this simulation to approximate the solutions over time. These methods provide a numerical solution that allows for the visualization of the pendulum's motion and the exploration of its chaotic behaviour. I use the following equations to model the motion of the system.
 
-- Position Vector:
+- **Position Vector:**
 
 Pendulum 1:
 ```math
@@ -22,7 +22,7 @@ Pendulum 2:
 \mathbf{r}_2 = \begin{pmatrix} R_2 \sin(\theta_2) \\ -R_2 \cos(\theta_2) \end{pmatrix}
 ```
 
-- Acceleration Vector:
+- **Acceleration Vector:**
 
 Pendulum 1:
 ```math
@@ -33,7 +33,7 @@ Pendulum 2:
 \mathbf{a}_2 = \frac{d^2 \mathbf{r}_2}{dt^2}
 ```
 
-- Forces Acting on Pendulum:
+- **Forces Acting on Pendulum:**
 
 Pendulum 1:
 ```math
@@ -44,7 +44,7 @@ Pendulum 2:
 \mathbf{F}_2 = \begin{pmatrix} 0 \\ -m_2 g \end{pmatrix} + \begin{pmatrix} -T_2 \sin(\theta_2) \\ T_2 \cos(\theta_2) \end{pmatrix} + \begin{pmatrix} -b R_2 \frac{d\theta_2}{dt} \cos(\theta_2) \\ -b R_2 \frac{d\theta_2}{dt} \sin(\theta_2) \end{pmatrix}
 ```
 
-Equation of motion:
+- **Equation of motion:**
 
 Pendulum 1:
 ```math
@@ -55,7 +55,7 @@ Pendulum 2:
 \mathbf{m}_2 \mathbf{a}_2 = \mathbf{F}_2 - \frac{\mathbf{m}_2}{\mathbf{m}_1}\mathbf{F}_1
 ```
 
-Angular acceleration: 
+- **Angular acceleration:**
 
 Pendulum 1: 
 ```math
