@@ -11,116 +11,35 @@ The motion of a double pendulum can be described by a set of coupled ordinary di
 
 The equations of motion for a double pendulum are highly nonlinear and cannot be solved analytically. Therefore, the Runge-Kutta method is implemented in this simulation to approximate the solutions over time. These methods provide a numerical solution that allows for the visualization of the pendulum's motion and the exploration of its chaotic behaviour. We use the following equations to model the motion of the system.
 
-#### Pendulum 1
+## Double Pendulum Simulation
 
-- **Position Vector:**
-  $$
-  \mathbf{r}_1 = R_1 \begin{pmatrix}
-  \sin(\theta_1) \\
-  -\cos(\theta_1)
-  \end{pmatrix}
-  $$
+### Equations of Motion
 
-- **Acceleration Vector:**
-  $$
-  \mathbf{a}_1 = R_1 \left( \begin{pmatrix}
-  \ddot{\theta}_1 \cos(\theta_1) - \dot{\theta}_1^2 \sin(\theta_1) \\
-  \ddot{\theta}_1 \sin(\theta_1) + \dot{\theta}_1^2 \cos(\theta_1)
-  \end{pmatrix} \right)
-  $$
+**Pendulum 1:**
 
-- **Forces Acting on Pendulum 1:**
-  $$
-  \mathbf{F}_1 = -m_1 g \begin{pmatrix}
-  0 \\
-  1
-  \end{pmatrix} + T_1 \begin{pmatrix}
-  -\sin(\theta_1) \\
-  \cos(\theta_1)
-  \end{pmatrix} + \text{Damping Forces}
-  $$
+- Position Vector: $$\mathbf{r}_1 = R_1 \begin{pmatrix} \sin(\theta_1) \\ -\cos(\theta_1) \end{pmatrix}$$
+- Acceleration Vector: $$\mathbf{a}_1 = R_1 \left( \begin{pmatrix} \ddot{\theta}_1 \cos(\theta_1) - \dot{\theta}_1^2 \sin(\theta_1) \\ \ddot{\theta}_1 \sin(\theta_1) + \dot{\theta}_1^2 \cos(\theta_1) \end{pmatrix} \right)$$
+- Forces Acting on Pendulum 1: $$\mathbf{F}_1 = -m_1 g \begin{pmatrix} 0 \\ 1 \end{pmatrix} + T_1 \begin{pmatrix} -\sin(\theta_1) \\ \cos(\theta_1) \end{pmatrix} + \text{Damping Forces}$$
+- Equation of Motion: $$m_1 \mathbf{a}_1 - \mathbf{F}_1 = 0$$
 
-- **Equation of Motion:**
-  $$
-  m_1 \mathbf{a}_1 - \mathbf{F}_1 = 0
-  $$
+**Pendulum 2:**
 
-#### Pendulum 2
-
-- **Position Vector:**
-  $$
-  \mathbf{r}_2 = \mathbf{r}_1 + R_2 \begin{pmatrix}
-  \sin(\theta_2) \\
-  -\cos(\theta_2)
-  \end{pmatrix}
-  $$
-
-- **Acceleration Vector:**
-  $$
-  \mathbf{a}_2 = R_2 \left( \begin{pmatrix}
-  \ddot{\theta}_2 \cos(\theta_2) - \dot{\theta}_2^2 \sin(\theta_2) \\
-  \ddot{\theta}_2 \sin(\theta_2) + \dot{\theta}_2^2 \cos(\theta_2)
-  \end{pmatrix} \right)
-  $$
-
-- **Forces Acting on Pendulum 2:**
-  $$
-  \mathbf{F}_2 = -m_2 g \begin{pmatrix}
-  0 \\
-  1
-  \end{pmatrix} + T_2 \begin{pmatrix}
-  -\sin(\theta_2) \\
-  \cos(\theta_2)
-  \end{pmatrix} + \text{Damping Forces}
-  $$
-
-- **Equation of Motion:**
-  $$
-  m_2 \mathbf{a}_2 - \mathbf{F}_2 = 0
-  $$
+- Position Vector: $$\mathbf{r}_2 = \mathbf{r}_1 + R_2 \begin{pmatrix} \sin(\theta_2) \\ -\cos(\theta_2) \end{pmatrix}$$
+- Acceleration Vector: $$\mathbf{a}_2 = R_2 \left( \begin{pmatrix} \ddot{\theta}_2 \cos(\theta_2) - \dot{\theta}_2^2 \sin(\theta_2) \\ \ddot{\theta}_2 \sin(\theta_2) + \dot{\theta}_2^2 \cos(\theta_2) \end{pmatrix} \right)$$
+- Forces Acting on Pendulum 2: $$\mathbf{F}_2 = -m_2 g \begin{pmatrix} 0 \\ 1 \end{pmatrix} + T_2 \begin{pmatrix} -\sin(\theta_2) \\ \cos(\theta_2) \end{pmatrix} + \text{Damping Forces}$$
+- Equation of Motion: $$m_2 \mathbf{a}_2 - \mathbf{F}_2 = 0$$
 
 ### Angular Accelerations
 
-After solving the above equations, the angular accelerations $\alpha_1$ and $\alpha_2$ are obtained from the system:
-
-- **Angular Acceleration of Pendulum 1:**
-  $$
-  \alpha_1 = \ddot{\theta}_1 = \text{Function of } (\theta_1, \theta_2, \dot{\theta}_1, \dot{\theta}_2, g, R_1, R_2, m_1, m_2, b)
-  $$
-
-- **Angular Acceleration of Pendulum 2:**
-  $$
-  \alpha_2 = \ddot{\theta}_2 = \text{Function of } (\theta_1, \theta_2, \dot{\theta}_1, \dot{\theta}_2, g, R_1, R_2, m_1, m_2, b)
-  $$
+- Angular Acceleration of Pendulum 1: $$\alpha_1 = \ddot{\theta}_1 = \text{Function of } (\theta_1, \theta_2, \dot{\theta}_1, \dot{\theta}_2, g, R_1, R_2, m_1, m_2, b)$$
+- Angular Acceleration of Pendulum 2: $$\alpha_2 = \ddot{\theta}_2 = \text{Function of } (\theta_1, \theta_2, \dot{\theta}_1, \dot{\theta}_2, g, R_1, R_2, m_1, m_2, b)$$
 
 ### Numerical Integration
 
-The Runge-Kutta method (RK4) is used for numerical integration. Given an initial value problem:
+- Runge-Kutta Method (RK4):
+  1. Compute Intermediate Slopes: $$k_1 = h \cdot f(t_n, y_n)$$ $$k_2 = h \cdot f\left(t_n + \frac{h}{2}, y_n + \frac{k_1}{2}\right)$$ $$k_3 = h \cdot f\left(t_n + \frac{h}{2}, y_n + \frac{k_2}{2}\right)$$ $$k_4 = h \cdot f(t_n + h, y_n + k_3)$$
+  2. Update the Solution: $$y_{n+1} = y_n + \frac{1}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right)$$
 
-$$
-\frac{dy}{dt} = f(t, y)
-$$
-
-with initial condition $y(t_0) = y_0$, the RK4 method updates the solution using:
-
-1. **Compute Intermediate Slopes:**
-   $$
-   k_1 = h \cdot f(t_n, y_n)
-   $$
-   $$
-   k_2 = h \cdot f\left(t_n + \frac{h}{2}, y_n + \frac{k_1}{2}\right)
-   $$
-   $$
-   k_3 = h \cdot f\left(t_n + \frac{h}{2}, y_n + \frac{k_2}{2}\right)
-   $$
-   $$
-   k_4 = h \cdot f(t_n + h, y_n + k_3)
-   $$
-
-2. **Update the Solution:**
-   $$
-   y_{n+1} = y_n + \frac{1}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right)
-   $$
    
 ![image](https://github.com/user-attachments/assets/f4e71374-3d1b-4258-893c-2ffffdef8933)
 
