@@ -11,59 +11,59 @@ The motion of a double pendulum can be described by a set of coupled ordinary di
 
 The equations of motion for a double pendulum are highly nonlinear and cannot be solved analytically. Therefore, the Runge-Kutta method is implemented in this simulation to approximate the solutions over time. These methods provide a numerical solution that allows for the visualization of the pendulum's motion and the exploration of its chaotic behaviour. I use the following equations to model the motion of the system.
 
-**Pendulum 1:**
-
 - Position Vector:
+
+Pendulum 1:
 ```math
-\mathbf{r}_1 = R_1 \begin{pmatrix} \sin(\theta_1) \\ -\cos(\theta_1) \end{pmatrix}
+\mathbf{r}_1 = \begin{pmatrix} R_1 \sin(\theta_1) \\ -R_1 \cos(\theta_1) \end{pmatrix}
+```
+Pendulum 2:
+```math
+\mathbf{r}_2 = \begin{pmatrix} R_2 \sin(\theta_2) \\ -R_2 \cos(\theta_2) \end{pmatrix}
 ```
 
 - Acceleration Vector:
+
+Pendulum 1:
 ```math
-\mathbf{a}_1 = R_1 \begin{pmatrix} \ddot{\theta}_1 \cos(\theta_1) - \dot{\theta}_1^2 \sin(\theta_1) \\ \ddot{\theta}_1 \sin(\theta_1) + \dot{\theta}_1^2 \cos(\theta_1) \end{pmatrix}
+\mathbf{a}_1 = \frac{d^2 \mathbf{r}_1}{dt^2}
+```
+Pendulum 2:
+```math
+\mathbf{a}_2 = \frac{d^2 \mathbf{r}_2}{dt^2}
 ```
 
-- Forces Acting on Pendulum 1:
+- Forces Acting on Pendulum:
+
+Pendulum 1:
 ```math
-\mathbf{F}_1 = -m_1 g \begin{pmatrix} 0 \\ 1 \end{pmatrix} + T_1 \begin{pmatrix} -\sin(\theta_1) \\ \cos(\theta_1) \end{pmatrix} + \text{Damping Forces}
+\mathbf{F}_1 = \begin{pmatrix} 0 \\ -m_1 g \end{pmatrix} + \begin{pmatrix} -T_1 \sin(\theta_1) \\ T_1 \cos(\theta_1) \end{pmatrix} + \begin{pmatrix} T_2 \sin(\theta_2) \\ -T_2 \cos(\theta_2) \end{pmatrix} + \begin{pmatrix} -b R_1 \frac{d\theta_1}{dt} \cos(\theta_1) \\ -b R_1 \frac{d\theta_1}{dt} \sin(\theta_1) \end{pmatrix}
+```
+Pendulum 2:
+```math
+\mathbf{F}_2 = \begin{pmatrix} 0 \\ -m_2 g \end{pmatrix} + \begin{pmatrix} -T_2 \sin(\theta_2) \\ T_2 \cos(\theta_2) \end{pmatrix} + \begin{pmatrix} -b R_2 \frac{d\theta_2}{dt} \cos(\theta_2) \\ -b R_2 \frac{d\theta_2}{dt} \sin(\theta_2) \end{pmatrix}
 ```
 
-- Equation of Motion:
+Equation of motion:
+
+Pendulum 1:
 ```math
-$$m_1 \mathbf{a}_1 - \mathbf{F}_1 = 0$$
+\mathbf{m}_1 \mathbf{a}_1 = \mathbf{F}_1
+```
+Pendulum 2:
+```math
+\mathbf{m}_2 \mathbf{a}_2 = \mathbf{F}_2 - \frac{\mathbf{m}_2}{\mathbf{m}_1}\mathbf{F}_1
 ```
 
+Angular acceleration: 
 
-**Pendulum 2:**
-
-- Position Vector:
+Pendulum 1: 
 ```math
-$$\mathbf{r}_2 = \mathbf{r}_1 + R_2 \begin{pmatrix} \sin(\theta_2) \\ -\cos(\theta_2) \end{pmatrix}$$
+\alpha_1 = \frac{1}{m_1 R_1}\left(T_1 - T_2 \cos(\theta_2 - \theta_1) - b R_1 \frac{d\theta_1}{dt}\right)
 ```
-
-- Acceleration Vector:
+Pendulum 2:
 ```math
-$$\mathbf{a}_2 = R_2 \left( \begin{pmatrix} \ddot{\theta}_2 \cos(\theta_2) - \dot{\theta}_2^2 \sin(\theta_2) \\ \ddot{\theta}_2 \sin(\theta_2) + \dot{\theta}_2^2 \cos(\theta_2) \end{pmatrix} \right)$$
-```
-
-- Forces Acting on Pendulum 2:
-```math
-$$\mathbf{F}_2 = -m_2 g \begin{pmatrix} 0 \\ 1 \end{pmatrix} + T_2 \begin{pmatrix} -\sin(\theta_2) \\ \cos(\theta_2) \end{pmatrix} + \text{Damping Forces}$$
-```
-- Equation of Motion:
-```math
-$$m_2 \mathbf{a}_2 - \mathbf{F}_2 = 0$$
-```
-### Angular Accelerations
-
-- Angular Acceleration of Pendulum 1:
-```math
-$$\alpha_1 = \ddot{\theta}_1 = \text{Function of } (\theta_1, \theta_2, \dot{\theta}_1, \dot{\theta}_2, g, R_1, R_2, m_1, m_2, b)$$
-```
-
-- Angular Acceleration of Pendulum 2:
-```math
-$$\alpha_2 = \ddot{\theta}_2 = \text{Function of } (\theta_1, \theta_2, \dot{\theta}_1, \dot{\theta}_2, g, R_1, R_2, m_1, m_2, b)$$
+\alpha_2 = \frac{1}{m_2 R_2}\left(T_2 - b R_2 \frac{d\theta_2}{dt}\right)
 ```
 <!-- Adding extra spacing before the final image -->
 <br>
